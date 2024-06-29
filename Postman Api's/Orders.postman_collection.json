@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "79a7a2de-4d3e-40ea-83b2-bc9f72e4f0e4",
+		"name": "Orders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34956803"
+	},
+	"item": [
+		{
+			"name": "Place Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "restaurant_id",
+							"value": "66748b078211c0dd1dfce9e5",
+							"type": "text"
+						},
+						{
+							"key": "order",
+							"value": "all",
+							"type": "text"
+						},
+						{
+							"key": "instruction",
+							"value": "move left ",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "user address",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "created",
+							"type": "text"
+						},
+						{
+							"key": "total",
+							"value": "600",
+							"type": "text"
+						},
+						{
+							"key": "grand_Total",
+							"value": "620",
+							"type": "text"
+						},
+						{
+							"key": "delivery_charge",
+							"value": "20",
+							"type": "text"
+						},
+						{
+							"key": "payment_status",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "payment_mode",
+							"value": "COD",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/order/addOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"order",
+						"addOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get users Orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/order/user/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"order",
+						"user",
+						"order"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9rYXlAZ21haWwuY29tIiwidHlwZSI6ImFkbWluIiwiaWF0IjoxNzE4NDI3MDk5LCJleHAiOjE3MzM5NzkwOTksImF1ZCI6IjY2NmNhZDc2MzU5MmQ0OTBhZGQwZTI4MiIsImlzcyI6Im1lQG1lIn0.wkkdBbX3L86DdS52r066zeDhLqXunblbdWibTscT9bs",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

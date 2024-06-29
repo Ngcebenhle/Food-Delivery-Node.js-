@@ -1,0 +1,263 @@
+{
+	"info": {
+		"_postman_id": "f3820b3b-a2ee-4d46-b6f2-af6f1e59f452",
+		"name": "Restaurant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34956803"
+	},
+	"item": [
+		{
+			"name": "add restaurant",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9rYXlAZ21haWwuY29tIiwidHlwZSI6ImFkbWluIiwiaWF0IjoxNzE4NDI3MDk5LCJleHAiOjE3MzM5NzkwOTksImF1ZCI6IjY2NmNhZDc2MzU5MmQ0OTBhZGQwZTI4MiIsImlzcyI6Im1lQG1lIn0.wkkdBbX3L86DdS52r066zeDhLqXunblbdWibTscT9bs",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Meat",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "meat@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "3658477521",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678910",
+							"type": "text"
+						},
+						{
+							"key": "res_name",
+							"value": "Meat Lovers Market",
+							"type": "text"
+						},
+						{
+							"key": "short_name",
+							"value": "Food Lovers",
+							"type": "text"
+						},
+						{
+							"key": "open_time",
+							"value": "2024-06-10T09:13:42.499Z",
+							"type": "text"
+						},
+						{
+							"key": "close_time",
+							"value": "2024-06-10T19:13:42.499Z",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "150",
+							"type": "text"
+						},
+						{
+							"key": "delivery_time",
+							"value": "30",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Old Ebbitt Grill, Washington, DC, USA",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "{\"type\": \"Point\", \"coordinates\": [-77.033340,38.897945]}",
+							"type": "text"
+						},
+						{
+							"key": "cuisines",
+							"value": "[\"idian\",\"italian\",\"mexican\"]",
+							"type": "text"
+						},
+						{
+							"key": "city_id",
+							"value": "6668138e9f83c82ed9c54a2a",
+							"type": "text"
+						},
+						{
+							"key": "cover_image",
+							"type": "file",
+							"src": "postman-cloud:///1ef2c7b1-c767-46e0-97bd-e58da8b8db9f"
+						},
+						{
+							"key": "categories",
+							"value": "[\"idian\",\"italian\"]",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Great with a hint of special",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "active",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/restaurant/create/restaurant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"restaurant",
+						"create",
+						"restaurant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get nearby Restaurant",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/restaurant/restaurant/nearby?lat=30.405561&lng=-97.874191&radius=30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"restaurant",
+						"restaurant",
+						"nearby"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "30.405561"
+						},
+						{
+							"key": "lng",
+							"value": "-97.874191"
+						},
+						{
+							"key": "radius",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Nearby Restaurant (by name)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/restaurant/search/restaurant/nearby?lat=30.405561&lng=-97.87419&radius=30&name=peoples",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"restaurant",
+						"search",
+						"restaurant",
+						"nearby"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "30.405561"
+						},
+						{
+							"key": "lng",
+							"value": "-97.87419"
+						},
+						{
+							"key": "radius",
+							"value": "30"
+						},
+						{
+							"key": "name",
+							"value": "peoples"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Active Restaurants ()",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/restaurant/restaurant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"restaurant",
+						"restaurant"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9rYXlAZ21haWwuY29tIiwidHlwZSI6ImFkbWluIiwiaWF0IjoxNzE4NDI3MDk5LCJleHAiOjE3MzM5NzkwOTksImF1ZCI6IjY2NmNhZDc2MzU5MmQ0OTBhZGQwZTI4MiIsImlzcyI6Im1lQG1lIn0.wkkdBbX3L86DdS52r066zeDhLqXunblbdWibTscT9bs",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

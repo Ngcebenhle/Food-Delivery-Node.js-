@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "653f06f8-2a95-4aea-98fd-c3e59231fed3",
+		"name": "Banner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34956803"
+	},
+	"item": [
+		{
+			"name": "Add Banner",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9rYXlAZ21haWwuY29tIiwidHlwZSI6ImFkbWluIiwiaWF0IjoxNzE4NTU1MjA2LCJleHAiOjE3MzQxMDcyMDYsImF1ZCI6IjY2NjY5OTliZjA3ZjRmMGE2ZjlkMDI3ZCIsImlzcyI6Im1lQG1lIn0.G2Trxo8-90vmN1c0Y0X2Zh-mNpp7SthbwEEl3YMPKl4"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "banner",
+							"type": "file",
+							"src": "postman-cloud:///1ef2bfa0-383e-4a90-a8cd-9287bb7c5ecd"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/banner/add/banner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"banner",
+						"add",
+						"banner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Banner",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9rYXlAZ21haWwuY29tIiwidHlwZSI6ImFkbWluIiwiaWF0IjoxNzE4NTU1MjA2LCJleHAiOjE3MzQxMDcyMDYsImF1ZCI6IjY2NjY5OTliZjA3ZjRmMGE2ZjlkMDI3ZCIsImlzcyI6Im1lQG1lIn0.G2Trxo8-90vmN1c0Y0X2Zh-mNpp7SthbwEEl3YMPKl4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/banner/get/banner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"banner",
+						"get",
+						"banner"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

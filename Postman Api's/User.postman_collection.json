@@ -1,0 +1,460 @@
+{
+	"info": {
+		"_postman_id": "a7ccf838-cb72-42dc-942a-e6322a1bab41",
+		"name": "User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34956803"
+	},
+	"item": [
+		{
+			"name": "SignUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "bob",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "bob@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "9855621478",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "active",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678910",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LogIn",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/user/login?email=bob@gmail.com&password=12345678910",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "bob@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "12345678910"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resend Email Verification OTP",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9rYXlAZ21haWwuY29tIiwidHlwZSI6ImFkbWluIiwiaWF0IjoxNzE4NDI3MDk5LCJleHAiOjE3MzM5NzkwOTksImF1ZCI6IjY2NmNhZDc2MzU5MmQ0OTBhZGQwZTI4MiIsImlzcyI6Im1lQG1lIn0.wkkdBbX3L86DdS52r066zeDhLqXunblbdWibTscT9bs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/send/verification/email?email=okay@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"send",
+						"verification",
+						"email"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "okay@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify User Email Token",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJvYkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE3MTkyMTI2NDEsImV4cCI6MTczNDc2NDY0MSwiYXVkIjoiNjY3OTFhMzA2Zjc5ZjdiYWMzNjVlYzhjIiwiaXNzIjoibWVAbWUifQ.BfJO-EDQQXSQT1Chs7RRG5irfSZOCZd1oXIXzlWKQJY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "verification_token_opt",
+							"value": "94863",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/verify",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"verify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch User Profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJvYkBnbWFpbC5jb20iLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE3MTkyMTI2NDEsImV4cCI6MTczNDc2NDY0MSwiYXVkIjoiNjY3OTFhMzA2Zjc5ZjdiYWMzNjVlYzhjIiwiaXNzIjoibWVAbWUifQ.BfJO-EDQQXSQT1Chs7RRG5irfSZOCZd1oXIXzlWKQJY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/user/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Email Token",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Profile",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9rYXlAZ21haWwuY29tIiwidHlwZSI6ImFkbWluIiwiaWF0IjoxNzE4NDI3MDk5LCJleHAiOjE3MzM5NzkwOTksImF1ZCI6IjY2NmNhZDc2MzU5MmQ0OTBhZGQwZTI4MiIsImlzcyI6Im1lQG1lIn0.wkkdBbX3L86DdS52r066zeDhLqXunblbdWibTscT9bs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/update/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"update",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Reset Password OTP/Token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/user/send/reset/password/token?email=adam@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"send",
+						"reset",
+						"password",
+						"token"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "adam@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Reset Password Token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/user/verify/reset/password?email=adam@gmail.com&reset_password_token_opt=710222",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"verify",
+						"reset",
+						"password"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "adam@gmail.com"
+						},
+						{
+							"key": "reset_password_token_opt",
+							"value": "710222"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset Password",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "adam@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "reset_password_token_opt",
+							"value": "710222",
+							"type": "text"
+						},
+						{
+							"key": "new_password",
+							"value": "1234567891011",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/reset/password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"reset",
+						"password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get New Token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000?refresh_token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"query": [
+						{
+							"key": "refresh_token",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Phone",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9rYXlAZ21haWwuY29tIiwidHlwZSI6ImFkbWluIiwiaWF0IjoxNzE4NDI3MDk5LCJleHAiOjE3MzM5NzkwOTksImF1ZCI6IjY2NmNhZDc2MzU5MmQ0OTBhZGQwZTI4MiIsImlzcyI6Im1lQG1lIn0.wkkdBbX3L86DdS52r066zeDhLqXunblbdWibTscT9bs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "phone",
+							"value": "3659875268",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/update/phone",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"update",
+						"phone"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LogOut",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/user/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

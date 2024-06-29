@@ -1,0 +1,311 @@
+{
+	"info": {
+		"_postman_id": "17a6b4fb-94b5-4c5b-99a5-ff257c13fb3c",
+		"name": "Addresses",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34956803"
+	},
+	"item": [
+		{
+			"name": "Get User Address",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/address/address",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"address",
+						"address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Address",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/address//delete/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"address",
+						"",
+						"delete",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Address By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/address/getUserAddress/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"address",
+						"getUserAddress",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "6679383397f935e529f0744f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Address",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Home",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Eleven Madison Park, NY, USA",
+							"type": "text"
+						},
+						{
+							"key": "landmark",
+							"value": "Fire Hydrant",
+							"type": "text"
+						},
+						{
+							"key": "house",
+							"value": "C21",
+							"type": "text"
+						},
+						{
+							"key": "lat",
+							"value": "40.741673",
+							"type": "text"
+						},
+						{
+							"key": "lng",
+							"value": "-73.987244",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/address/edit/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"address",
+						"edit",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "6679383397f935e529f0744f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Existing Address",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/address/checkAddress?lat=34.168907&lng=119.229004",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"address",
+						"checkAddress"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "34.168907"
+						},
+						{
+							"key": "lng",
+							"value": "119.229004"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Limited Addess",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/address/checkAddress/:limit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"address",
+						"checkAddress",
+						":limit"
+					],
+					"query": [
+						{
+							"key": "lng",
+							"value": "",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "limit",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Address",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user-id",
+							"value": "6666999bf07f4f0a6f9d027d",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Pizza Place",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Joe's Pizza, NY, USA",
+							"type": "text"
+						},
+						{
+							"key": "landmark",
+							"value": "opposite post office",
+							"type": "text"
+						},
+						{
+							"key": "house",
+							"value": "Blocl c1",
+							"type": "text"
+						},
+						{
+							"key": "lat",
+							"value": "40.730522",
+							"type": "text"
+						},
+						{
+							"key": "lng",
+							"value": "-74.002205",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/address/create/address",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"address",
+						"create",
+						"address"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9rYXlAZ21haWwuY29tIiwidHlwZSI6ImFkbWluIiwiaWF0IjoxNzE4NDI3MDk5LCJleHAiOjE3MzM5NzkwOTksImF1ZCI6IjY2NmNhZDc2MzU5MmQ0OTBhZGQwZTI4MiIsImlzcyI6Im1lQG1lIn0.wkkdBbX3L86DdS52r066zeDhLqXunblbdWibTscT9bs",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

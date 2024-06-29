@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "7168c58c-cd5a-4faa-aff5-45ba71c96f9d",
+		"name": "Items",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34956803"
+	},
+	"item": [
+		{
+			"name": "Add Menu items",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9rYXlAZ21haWwuY29tIiwidHlwZSI6ImFkbWluIiwiaWF0IjoxNzE4NDI3MDk5LCJleHAiOjE3MzM5NzkwOTksImF1ZCI6IjY2NmNhZDc2MzU5MmQ0OTBhZGQwZTI4MiIsImlzcyI6Im1lQG1lIn0.wkkdBbX3L86DdS52r066zeDhLqXunblbdWibTscT9bs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "restaurant_id",
+							"value": "66748b078211c0dd1dfce9e5",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "66748b078211c0dd1dfce9e7",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Burger",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "its Great",
+							"type": "text"
+						},
+						{
+							"key": "itemimages",
+							"type": "file",
+							"src": "postman-cloud:///1ef2c7b1-c767-46e0-97bd-e58da8b8db9f"
+						},
+						{
+							"key": "price",
+							"value": "300",
+							"type": "text"
+						},
+						{
+							"key": "veg",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/item/create/item",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"item",
+						"create",
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "restaurant_id",
+							"value": "66748b078211c0dd1dfce9e5",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "66748b078211c0dd1dfce9e7",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Burger",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "its Great",
+							"type": "text"
+						},
+						{
+							"key": "itemImage",
+							"type": "file",
+							"src": "postman-cloud:///1ef2c7b1-c767-46e0-97bd-e58da8b8db9f"
+						},
+						{
+							"key": "price",
+							"value": "300",
+							"type": "text"
+						},
+						{
+							"key": "veg",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/item/create/item",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"item",
+						"create",
+						"item"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "veg",
+							"value": "tru",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "restaurant_id",
+							"value": "66748b078211c0dd1dfce9e5",
+							"disabled": true
+						},
+						{
+							"key": "category_id",
+							"value": "66748b078211c0dd1dfce9e7",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get item by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/item/items/:restaurantID",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"item",
+						"items",
+						":restaurantID"
+					],
+					"variable": [
+						{
+							"key": "restaurantID",
+							"value": "66748b078211c0dd1dfce9e5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9rYXlAZ21haWwuY29tIiwidHlwZSI6ImFkbWluIiwiaWF0IjoxNzE5MDQ4NDc1LCJleHAiOjE3MzQ2MDA0NzUsImF1ZCI6IjY2NjY5OTliZjA3ZjRmMGE2ZjlkMDI3ZCIsImlzcyI6Im1lQG1lIn0.0kCIff7Z8__6NsZ6NAnH4lQtx1aOMhA8saaYFesGtSg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
