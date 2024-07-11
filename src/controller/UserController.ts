@@ -1,11 +1,16 @@
-import { validationResult } from "express-validator";
+import { body, validationResult } from "express-validator";
 import userModel from "../Models/userModel";
 import { utils } from "../utils/utils";
-import { nodemailer } from "../utils/nodemailer";
+// import { nodemailer } from "../utils/nodemailer";
 import * as jwt from "jsonwebtoken";
 import { jwt_secret_key } from "../ENV/enviromentAccess";
 import { Jwt } from "../utils/jwt";
 import { Redis } from "../utils/redis";
+import { error } from "node:console";
+// const nodemailer = require("nodemailer");
+import * as nodemailer from 'nodemailer'
+import { json } from "body-parser";
+import { DevENV } from "../ENV/DevEnviromentViriable";
 
 export class UserController {
   
@@ -59,28 +64,28 @@ export class UserController {
         status,
       };
 
-      let user = await new userModel(data).save();
+      // let user = await new userModel(data).save();
 
-      const user_data = {
-        email: user.email,
-        // email_verified: user.email_verified,
-        verification_token_opt,
-        phone: user.phone,
-        name: user.name,
-        type: user.type,
-        status: user.status,
-        created_at: user.created_at,
-        lastUpdated_at: user.lastUpdated_at,
-      };
+      // const user_data = {
+      //   email: user.email,
+      //   // email_verified: user.email_verified,
+      //   verification_token_opt,
+      //   phone: user.phone,
+      //   name: user.name,
+      //   type: user.type,
+      //   status: user.status,
+      //   created_at: user.created_at,
+      //   lastUpdated_at: user.lastUpdated_at,
+      // };
 
-      const payload = {
-        userId: user.id,
-        email: user.email,
-        type: user.type,
-      };
+      // const payload = {
+      //   userId: user.id,
+      //   email: user.email,
+      //   type: user.type,
+      // };
 
-      const access_token = Jwt.jwtSign(payload, user.id);
-      const refresh_token = await Jwt.jwtSignRefresgToken(payload, user.id);
+      // const access_token = Jwt.jwtSign(payload, user.id);
+      // const refresh_token = await Jwt.jwtSignRefresgToken(payload, user.id);
 
 
       // const access_token = jwt.sign(
@@ -89,17 +94,57 @@ export class UserController {
       //   {expiresIn: '1d'}
       // )
 
-      res.json({
-        token: access_token,
-        refresh_token:refresh_token,
-        user: user_data,
+     
+      // await nodemailer.sendMail({
+      //   to:[email],
+      //   subject: 'test',
+      //   html: `<h1>Your Opt is ${verification_token_opt}<h1>`
+      // })
+      // await nodemailer.sendMail().then(w =>{
+      //    console.log('We winning')
+      // }).catch(e=>{
+      //  throw error(e)
+      // })
+
+
+      const transporter = nodemailer.createTransport({
+        service:"gmail",
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false, // Use `true` for port 465, `false` for all other ports
+        auth: {
+          user:DevENV.username,
+          pass:DevENV.password,
+        },
+        tls: {
+          rejectUnauthorized: false
+        },
       });
 
-      await nodemailer.sendMail({
-        to:[email],
-        subject: 'test',
-        html: `<h1>Your Opt is ${verification_token_opt}<h1>`
-      })
+      
+      async function main(email, otp) {
+        // send mail with defined transport object
+        const info = await transporter.sendMail({
+          from: '"Maddison Foo Koch 👻" <maddison53@ethereal.email>', // sender address
+          to: email, // list of receivers
+          subject: "Hello ✔", // Subject line
+          text: `Your OTP is ${otp}`, // plain text body
+          html: "<b>Hello world?</b>", // html body
+        });
+      
+        console.log("Message sent: %s", info.messageId);
+        // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
+      }
+
+      main(email,verification_token_opt).catch(console.error);
+      
+      res.json({
+        Success: true
+        // token: access_token,
+        // refresh_token:refresh_token,
+        // user: user_data,
+      });
+
     } catch (e) {
       next(e);
     }
@@ -179,6 +224,39 @@ export class UserController {
         }
       );
       if (user) {
+
+
+        const transporter = nodemailer.createTransport({
+          service:"gmail",
+          host: "smtp.gmail.com",
+          port: 587,
+          secure: false, // Use `true` for port 465, `false` for all other ports
+          auth: {
+            user:DevENV.username,
+            pass:DevENV.password,
+          },
+          tls: {
+            rejectUnauthorized: false
+          },
+        });
+  
+        
+        async function main(email, otp) {
+          // send mail with defined transport object
+          const info = await transporter.sendMail({
+            from: '"Maddison Foo Koch 👻" <maddison53@ethereal.email>', // sender address
+            to: email, // list of receivers
+            subject: "Hello ✔", // Subject line
+            text: `Your OTP is ${otp}`, // plain text body
+            html: "<b>Hello world?</b>", // html body
+          });
+        
+          console.log("Message sent: %s", info.messageId);
+          // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
+        }
+  
+        main(email,verification_token).catch(console.error);
+
         // await nodemailer.sendMail({
         //   to: [email],
         //   subject: "test",
@@ -255,6 +333,37 @@ export class UserController {
         res.json({ success: true,
           user
          });
+
+         const transporter = nodemailer.createTransport({
+          service:"gmail",
+          host: "smtp.gmail.com",
+          port: 587,
+          secure: false, // Use `true` for port 465, `false` for all other ports
+          auth: {
+            user:DevENV.username,
+            pass:DevENV.password,
+          },
+          tls: {
+            rejectUnauthorized: false
+          },
+        });
+  
+        
+        async function main(email, otp) {
+          // send mail with defined transport object
+          const info = await transporter.sendMail({
+            from: '"Maddison Foo Koch 👻" <maddison53@ethereal.email>', // sender address
+            to: email, // list of receivers
+            subject: "Hello ✔", // Subject line
+            text: `Your OTP is ${otp}`, // plain text body
+            html: "<b>Hello world?</b>", // html body
+          });
+        
+          console.log("Message sent: %s", info.messageId);
+          // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
+        }
+  
+        main(email,reset_password_token_opt).catch(console.error);
         // await nodemailer.sendMail({
         //   to: [email],
         //   subject: "Reset Password Email otp",
@@ -415,6 +524,35 @@ export class UserController {
         // refresh_token: refresh_token,
         user: updateuser,
       });
+
+      
+      const transporter = nodemailer.createTransport({
+        service:"gmail",
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false, // Use `true` for port 465, `false` for all other ports
+        auth: {
+          user:DevENV.username,
+          pass:DevENV.password,
+        },
+        tls: {
+          rejectUnauthorized: false
+        },
+      });  
+      async function main(email, otp) {
+        // send mail with defined transport object
+        const info = await transporter.sendMail({
+          from: '"Maddison Foo Koch 👻" <maddison53@ethereal.email>', // sender address
+          to: email, // list of receivers
+          subject: "Hello ✔", // Subject line
+          text: `Your OTP is ${otp}`, // plain text body
+          html: "<b>Hello world?</b>", // html body
+        });
+      
+        console.log("Message sent: %s", info.messageId);
+        // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
+      }
+      main( updateuser.email,verification_token).catch(console.error);
 
       // await nodemailer.sendMail({
       //   to: [updateuser.email],

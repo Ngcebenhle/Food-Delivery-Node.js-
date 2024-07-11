@@ -11,7 +11,7 @@ import categoryRouter from "./Router/categoryRoutes";
 import itemRouter from "./Router/itemRoutes";
 import addressRouter from "./Router/addressRoutes";
 import orderRouter from "./Router/orderRoutes";
-import * as dotenv from 'dotenv'
+import * as dotenv from "dotenv";
 import { utils } from "./utils/utils";
 import { Redis } from "./utils/redis";
 
@@ -21,21 +21,18 @@ export class server {
   public app = express();
 
   constructor() {
-    
     this.setConfigs();
     this.setRoutes();
     this.error404Handler();
     this.errorHandler();
   }
-
   setConfigs() {
     this.dotenvConfig();
     this.connectMongoDB();
-    this.connectRedis();
+    // this.connectRedis();
     this.allowCors();
     this.configBodyParser();
   }
-
   configBodyParser() {
     this.app.use(
       bodyParser.urlencoded({
@@ -43,12 +40,10 @@ export class server {
       })
     );
   }
-
   allowCors() {
     this.app.use(cors());
   }
-
-  dotenvConfig(){
+  dotenvConfig() {
     // dotenv.config({path:__dirname + '/.env'})
     utils.dotenvConfig();
   }
@@ -57,16 +52,15 @@ export class server {
       console.log("Connected to MongoDB");
     });
   }
-  connectRedis(){
+  connectRedis() {
     Redis.connectToRedis();
   }
-
   setRoutes() {
-    this.app.get('/', (req, res) => {
-      res.send('Hello World! i am alive  yeahhh lest go');
-     });
+    this.app.get("/", (req, res) => {
+      res.send("Hello World! i am alive  yeahhh lest go");
+    });
     this.app.use("/api/user", UserRouter);
-     this.app.use("/api/uploads/", express.static('src/uploads'));
+    this.app.use("/api/uploads/", express.static("src/uploads"));
     this.app.use("/api/banner", bannerRouter);
     this.app.use("/api/city", cityRouter);
     this.app.use("/api/restaurant", restaurantRouter);
@@ -75,7 +69,6 @@ export class server {
     this.app.use("/api/address", addressRouter);
     this.app.use("/api/order", orderRouter);
   }
-
   error404Handler() {
     this.app.use((req, res) => {
       res.status(404).json({
@@ -84,7 +77,6 @@ export class server {
       });
     });
   }
-
   errorHandler() {
     this.app.use((error, req, res, next) => {
       const errorStatus = req.errorStatus || 500;
